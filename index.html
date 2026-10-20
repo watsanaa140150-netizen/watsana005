@@ -1,0 +1,232 @@
+
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>โปรไฟล์ส่วนตัว | นางสาววาสนา อุยเอก</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Tahoma, sans-serif;
+      background: linear-gradient(135deg, #eee8ff, #ffe4f4);
+      color: #30264d;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 25px;
+    }
+
+    .profile-card {
+      background: rgba(255, 255, 255, 0.95);
+      width: 100%;
+      max-width: 420px;
+      text-align: center;
+      padding: 35px 25px;
+      border-radius: 28px;
+      box-shadow: 0 15px 45px rgba(105, 67, 160, 0.18);
+      border: 1px solid white;
+      animation: appear 0.8s ease;
+    }
+
+    @keyframes appear {
+      from {
+        opacity: 0;
+        transform: translateY(25px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .avatar {
+      width: 135px;
+      height: 135px;
+      border-radius: 50%;
+      border: 5px solid #d8c4ff;
+      background: linear-gradient(135deg, #a78bfa, #f9a8d4);
+      margin-bottom: 20px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 55px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    h1 {
+      font-size: 25px;
+      margin-bottom: 10px;
+      color: #7045c4;
+    }
+
+    .subtitle {
+      color: #a052a0;
+      margin-bottom: 22px;
+      font-size: 15px;
+    }
+
+    .divider {
+      width: 65px;
+      height: 4px;
+      background: linear-gradient(90deg, #8b5cf6, #ec4899);
+      border-radius: 10px;
+      margin: 0 auto 22px;
+    }
+
+    .description {
+      font-size: 15px;
+      line-height: 1.9;
+      color: #6d6480;
+      margin-bottom: 24px;
+    }
+
+    .contact-box {
+      background: #f5f0ff;
+      border-radius: 18px;
+      padding: 18px 12px;
+      margin-bottom: 22px;
+    }
+
+    .contact-label {
+      font-size: 14px;
+      color: #8b72b4;
+      margin-bottom: 6px;
+    }
+
+    .phone {
+      color: #7045c4;
+      font-size: 23px;
+      font-weight: bold;
+      letter-spacing: 1px;
+    }
+
+    .buttons {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .btn {
+      display: block;
+      padding: 13px;
+      border-radius: 30px;
+      text-decoration: none;
+      border: none;
+      font-size: 16px;
+      font-family: inherit;
+      cursor: pointer;
+      transition: 0.25s;
+    }
+
+    .btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 6px 16px #8b5cf633;
+    }
+
+    .call-btn {
+      background: linear-gradient(90deg, #8b5cf6, #ec4899);
+      color: white;
+    }
+
+    .copy-btn {
+      background: #eee5ff;
+      color: #7045c4;
+    }
+
+    footer {
+      color: #a69ab8;
+      font-size: 12px;
+      margin-top: 25px;
+    }
+
+    @media (max-width: 480px) {
+      body {
+        padding: 15px;
+      }
+
+      .profile-card {
+        padding: 30px 20px;
+      }
+
+      h1 {
+        font-size: 22px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <main class="profile-card">
+
+    <div class="avatar" aria-label="สัญลักษณ์โปรไฟล์">
+      🌸
+    </div>
+
+    <h1>นางสาววาสนา อุยเอก</h1>
+
+    <p class="subtitle">
+      ✨ โปรไฟล์ส่วนตัวอิเล็กทรอนิกส์ ✨
+    </p>
+
+    <div class="divider"></div>
+
+    <p class="description">
+      ยินดีต้อนรับสู่โปรไฟล์ส่วนตัวของฉัน<br>
+      ขอบคุณที่เข้ามาเยี่ยมชมค่ะ 💗
+    </p>
+
+    <section class="contact-box">
+      <p class="contact-label">📱 ช่องทางการติดต่อ</p>
+      <p class="phone">062-514-0872</p>
+    </section>
+
+    <div class="buttons">
+
+      <a class="btn call-btn" href="tel:0625140872">
+        📞 โทรติดต่อ
+      </a>
+
+      <button class="btn copy-btn" onclick="copyPhone()">
+        📋 คัดลอกเบอร์โทรศัพท์
+      </button>
+
+    </div>
+
+    <footer>
+      © <span id="year"></span> Wasana Ui-ek
+      <br>
+      Personal Electronic Profile
+    </footer>
+
+  </main>
+
+  <script>
+    // แสดงปีปัจจุบัน
+    document.getElementById("year").textContent =
+      new Date().getFullYear();
+
+    // คัดลอกหมายเลขโทรศัพท์
+    async function copyPhone() {
+      const phone = "0625140872";
+
+      try {
+        await navigator.clipboard.writeText(phone);
+        alert("คัดลอกเบอร์โทรศัพท์เรียบร้อยแล้วค่ะ");
+      } catch (error) {
+        alert("เบอร์โทรศัพท์ของคุณคือ " + phone);
+      }
+    }
+  </script>
+
+</body>
+</html>
